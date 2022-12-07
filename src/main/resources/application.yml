@@ -1,0 +1,16 @@
+server:
+    port: 8081
+
+spring:
+    datasource:
+        username: root
+        password: 111111
+        url: jdbc:mysql://dev-0:3306/blog?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        
+    devtools:
+        restart:
+            enabled: true
+
+mybatis:
+    mapper-locations: classpath:mapper/*.xml
