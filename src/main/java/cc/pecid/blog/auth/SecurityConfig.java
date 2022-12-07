@@ -22,11 +22,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/login").permitAll().anyRequest().authenticated();
         // .and()
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        // http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         // .and()
         http.exceptionHandling().authenticationEntryPoint(authError);
-        http.headers().frameOptions().disable();
-
+        // http.headers().frameOptions().disable();
+        // http.headers().cacheControl().disable();
+        // http.csrf().disable();
         
 
         http.addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class);
