@@ -18,6 +18,7 @@ public class AuthError implements AuthenticationEntryPoint {
             AuthenticationException authException) throws IOException, ServletException {
         System.out.println("AuthError");
         System.out.println(authException.getMessage());
+        throw authException;
     }
     
 }
