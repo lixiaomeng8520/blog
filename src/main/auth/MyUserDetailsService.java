@@ -1,4 +1,4 @@
-package cc.pecid.blog.auth;
+package auth;
 
 import java.util.Collections;
 

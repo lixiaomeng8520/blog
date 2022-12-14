@@ -1,31 +1,27 @@
 package cc.pecid.blog.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
+
+import javax.validation.constraints.Max;
 import java.io.Serializable;
 
-public class User implements Serializable{
-    
-    private int id;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class User {
+
+
+    private Integer id;
     private String name;
 
-    
+    @Max(value = 200, message = "max 200")
+    private Integer age;
 
-    public User(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-    public int getId() {
-        return id;
-    }
-    
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }    
-
+//    private Article article;
     
 }

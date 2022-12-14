@@ -1,4 +1,4 @@
-package cc.pecid.blog.auth;
+package auth;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
