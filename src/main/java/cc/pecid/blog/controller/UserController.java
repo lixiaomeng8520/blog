@@ -2,10 +2,12 @@ package cc.pecid.blog.controller;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,16 +31,24 @@ public class UserController {
 
     @Autowired
     UserMapper userMapper;
+
+    @Autowired
+    RedisTemplate redisTemplate;
     
-    @GetMapping("/list")
-    public Object list() throws SQLException {
-        System.out.println(dataSource.getClass());
+    @RequestMapping("/list")
+    public void list() throws SQLException {
+        // System.out.println(dataSource.getClass());
         // System.out.println(jdbcTemplate.queryForObject("select count(*) from users", Integer.class));
 
-        List<User> userList = userMapper.getUserList();
-        System.out.println(userList);
+        // List<User> userList = userMapper.getUserList();
+        // System.out.println(userList);
         // return SecurityContextHolder.getContext().getAuthentication().getName();
-        return userList;
+        
+        // redisTemplate.opsForValue().set( "user:11", new User(11, "lixiaomeng"), 3660, TimeUnit.SECONDS);
+        // System.out.println(((User)redisTemplate.opsForValue().get("user:11")).getName()); 
+
+        // System.out.println();
+        System.out.println("/user/list");
     }
 
     @PostMapping("/add")

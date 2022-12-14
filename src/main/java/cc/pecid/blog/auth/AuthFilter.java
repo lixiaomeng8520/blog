@@ -22,14 +22,13 @@ public class AuthFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        System.out.println("AuthFilter - start");
-        User user = new User("lixiaomeng", "111111", Collections.emptyList());
-        Authentication authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+        System.out.println("AuthFilter");
+        // User user = new User("lixiaomeng", "", Collections.emptyList());
+        // Authentication authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
 
-        System.out.println(authentication.isAuthenticated());
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+        // System.out.println(authentication.isAuthenticated());
+        // SecurityContextHolder.getContext().setAuthentication(authentication);
         
-        System.out.println("AuthFilter - end");
         filterChain.doFilter(request, response);
         
     }

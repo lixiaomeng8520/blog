@@ -1,14 +1,23 @@
 package cc.pecid.blog.domain;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
     
-    private Long id;
+    private int id;
     private String name;
 
-    public Long getId() {
+    
+
+    public User(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    
+    public void setId(int id) {
         this.id = id;
     }
     public String getName() {
@@ -17,4 +26,6 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }    
+
+    
 }
